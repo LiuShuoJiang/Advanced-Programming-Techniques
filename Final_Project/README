@@ -1,0 +1,36 @@
+ECE 6122 Final Project: 3D Animated Scene with OpenGL and Multithreading (The Default One)
+
+By: Shuojiang Liu
+
+This project is a 3D animation developed using C++ and OpenGL, showcasing an interactive scene with animated objects and dynamic lighting effects. The application renders four distinct 3D models, each with its own internal point light source, in a virtual space. The models exhibit random motion with collision detection and respond dynamically to user inputs.
+
+Setup (may not work on MacOS or Linux):
+
+1. Platform: Windows 11
+2. IDE: Visual Studio 2022
+3. Third-party libraries:
+   - GLFW 3.3.8 (https://github.com/glfw/glfw/releases/download/3.3.8/glfw-3.3.8.zip): Note that I used the library that I compiled from scratch based on the source files (instead of the officially provided pre-built files). Include the header and generated library files, and add "glfw3.lib" and "opengl32.lib" to the additional library dependencies.
+   - Glad (https://glad.dav1d.de/): Choose language "C/C++", profile "core", gl "Version 4.6", and "generate a loader". Include the header files and add "glad.c" to the source files.
+   - GLM 0.9.9.8 (https://github.com/g-truc/glm): Simply download and include all the header files.
+   - assimp 5.3.1 (https://github.com/assimp/assimp/archive/refs/tags/v5.3.1.zip): Note that I used the library that I compiled from scratch based on the source files (instead of the officially provided pre-built files). Include the header and generated library files, and add "assimp-vc143-mtd.lib" to the additional library dependencies. Also place the generated "assimp-vc143-mtd.dll" file in the same directory as the executable (.exe file).
+   - stb (https://github.com/nothings/stb/blob/master/stb_image.h): Simply download and include the header file.
+
+Note:
+
+- I referenced the model loading example from LearnOpenGL tutorial (https://learnopengl.com). The code in this tutorial gave me hints for building my project.
+- I used the models from other resources (https://github.com/JoeyDeVries/LearnOpenGL/tree/master/resources) instead of the default ones, which are more richly styled to achieve a greater variety of effects.
+
+Features:
+
+1. Animated 3D Models: Four unique objects are animated to move randomly within a confined hemispherical space. The motion includes both translation and rotation, providing a lively scene.
+2. Dynamic Lighting: Each object contains an internal point light that randomly changes its intensity over time. This change is smooth, thanks to linear interpolation between color values, creating a visually appealing and dynamic lighting environment.
+3. Collision Detection: The objects can collide with each other and the boundaries of the defined space. Upon collision, they bounce off, altering their trajectory and rotation axis.
+4. Interactive Camera Controls:
+   - The camera constantly points towards the center of the scene.
+   - Zoom in/out functionality is provided via the up/down arrow keys.
+   - The left/right arrow keys allow the user to rotate the camera or the models left and right.
+   - The "u" and "d" keys enable vertical rotation of the camera.
+   - The escape key can be used to exit the application.
+5. Multithreading: The project utilizes C++ std::thread for calculating the movement of each object independently, ensuring smooth animation and responsiveness.
+
+
